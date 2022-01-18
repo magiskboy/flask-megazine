@@ -1,0 +1,39 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="15"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('admin.index') }}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('admin.posts') }}">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('admin.users') }}">Users</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <div class="p-2">
+        <a href="{{ url_for('admin.profile') }}">Profile</a>
+      </div>
+      <div class="p-2">
+        <a href="{{ url_for('admin.logout') }}"><i class="bi bi-box-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
