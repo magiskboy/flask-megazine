@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.utils import secure_filename
 from .form import LoginForm, UpdateProfileForm
-from .auth import User
+from .auth import LoginUser
 
 admin_bp = Blueprint('admin', __name__)
 
@@ -17,7 +17,9 @@ def index():
 @admin_bp.route('/posts', methods=['GET'])
 @login_required
 def posts():
-    return 'post'
+    template = 'admin/post.html'
+    ctx = {}
+    return render_template(template, **ctx)
 
 
 @admin_bp.route('/users', methods=['GET'])
@@ -88,7 +90,7 @@ def login():
             flash(message, 'danger')
         return redirect(url_for('admin.login'))
 
-    user = User.query.filter_by(username=login_form.username.data).first()
+    user = LoginUser.query.filter_by(username=login_form.username.data).first()
     if (not user) or (not user.verify_password(login_form.password.data)):
         flash('User not found', 'danger')
         return redirect(url_for('admin.login'))

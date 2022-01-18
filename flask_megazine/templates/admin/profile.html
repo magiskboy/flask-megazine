@@ -1,32 +1,30 @@
 {% extends "admin/layout.html" %}
 
 {% block main %}
-<div class="row">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <h1>Profile</h1>
-    <div style="width: 40%; margin: 0 auto;">
-      <div style="margin: 0 auto">
-        <form action="{{ url_for('admin.profile') }}" method="POST" enctype="multipart/form-data">
-          {{ form.csrf_token }}
-          <div class="mb-3">
-            {{ form.username.label(class_="form-label") }}
-            {{ form.username(class_="form-control") }}
-          </div>
-          <div class="mb-3">
-            {{ form.display_name.label(class_="form-label") }}
-            {{ form.display_name(class_="form-control") }}
-          </div>
-          <div class="mb-3">
-            {{ form.password.label(class_="form-label") }}
-            {{ form.password(class_="form-control") }}
-          </div>
-          <div class="mb-3">
-            {{ form.profile.label(class_="form-label") }}
-            {{ form.profile(class_="form-control") }}
-          </div>
-          <button type="submit" class="btn btn-primary">Update</button>
-        </form>
-      </div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <h1>Profile</h1>
+  <div style="width: 40%; margin: 0 auto;">
+    <div style="margin: 0 auto">
+      <form action="{{ url_for('admin.profile') }}" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="mb-3">
+          {{ form.username.label(class_="form-label") }}
+          {{ form.username(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+          {{ form.display_name.label(class_="form-label") }}
+          {{ form.display_name(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+          {{ form.password.label(class_="form-label") }}
+          {{ form.password(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+          {{ form.profile.label(class_="form-label") }}
+          {{ form.profile(class_="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
     </div>
   </div>
 </div>

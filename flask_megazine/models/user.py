@@ -1,16 +1,6 @@
 import sqlalchemy as sa
 from werkzeug.security import generate_password_hash, check_password_hash
-from ._config import db
-
-
-class ModelMixin:
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
+from ._config import db, ModelMixin
 
 
 class User(db.Model, ModelMixin):
